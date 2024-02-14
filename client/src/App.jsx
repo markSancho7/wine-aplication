@@ -1,10 +1,13 @@
+import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyles } from './styles/GlobalStyles';
 
 const App = () => {
 	return (
 		<>
-			<GlobalStyles />
-			<h1>REACT OK</h1>
+			<BrowserRouter>
+				<GlobalStyles />
+				<h1>REACT OK</h1>
+			</BrowserRouter>
 		</>
 	);
 };
