@@ -14,10 +14,9 @@ import { CartContext } from '../../contexts/CartContext';
 
 const CardWine = ({ wine }) => {
 	const [content, setContent] = useState();
-	const [counter, setCounter] = useState(0);
+	const [counter, setCounter] = useState(1);
 
 	const { cart, setCart } = useContext(CartContext);
-	console.log(cart);
 	return (
 		<StyledCard>
 			<StyledCardImg>
@@ -70,7 +69,6 @@ const counterPositive = (counter, setCounter) => {
 };
 
 const updateCart = (wine, cart, setCart, counter) => {
-	console.log(wine);
 	const wineExists = cart.find(wineInCart => wineInCart._id === wine._id);
 	let cartUpdated = [];
 	if (wineExists) {

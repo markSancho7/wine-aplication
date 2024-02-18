@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { URLS } from '../../constants/urls';
 import { postData } from '../../utils/api';
 import { createPortal } from 'react-dom';
+import { StyledContainerRegisterWine } from './styles';
 
 const RegisterWine = ({ closeModal, children }) => {
 	if (!children) return;
@@ -16,7 +17,7 @@ const RegisterWine = ({ closeModal, children }) => {
 	});
 
 	return createPortal(
-		<>
+		<StyledContainerRegisterWine>
 			<button onClick={closeModal}>X</button>
 			<p>REGISTER WINE</p>
 			<form onSubmit={event => handleSubmit(event)}>
@@ -82,7 +83,7 @@ const RegisterWine = ({ closeModal, children }) => {
 					</button>
 				</div>
 			</form>
-		</>,
+		</StyledContainerRegisterWine>,
 		document.getElementById('modalRegister')
 	);
 };

@@ -2,12 +2,13 @@ import { createPortal } from 'react-dom';
 import { patchData } from '../../utils/api';
 import { URLS } from '../../constants/urls';
 import { useState } from 'react';
+import { StyledContainerRegisterWine } from './styles';
 
 const UpdateWine = ({ wine, closeModal, children }) => {
 	if (!children) return;
 	const [updateWine, setUpdateWine] = useState(wine);
 	return createPortal(
-		<>
+		<StyledContainerRegisterWine>
 			<button onClick={closeModal}>X</button>
 			<form onSubmit={event => handleSubmit(event)}>
 				<div>
@@ -66,6 +67,16 @@ const UpdateWine = ({ wine, closeModal, children }) => {
 					/>
 				</div>
 				<div>
+					<label>Wine Style</label>
+					<input
+						type='text'
+						name='wineStyle'
+						onChange={event =>
+							changePropsWine(event.target, updateWine, setUpdateWine)
+						}
+					/>
+				</div>
+				<div>
 					<label>Description</label>
 					<input
 						type='text'
@@ -82,7 +93,7 @@ const UpdateWine = ({ wine, closeModal, children }) => {
 					</button>
 				</div>
 			</form>
-		</>,
+		</StyledContainerRegisterWine>,
 		document.getElementById('modalUpdate')
 	);
 };

@@ -2,23 +2,25 @@ import { useEffect, useState } from 'react';
 import { getData } from '../../utils/api';
 import { URLS } from '../../constants/urls';
 import CardWine from '../../components/cardWine/CardWine';
+import { StyledTotalContainer, StyledWinesContainer } from './styles';
 
 const Tranquilos = () => {
 	const [wines, setWines] = useState([]);
-
 	let filteredWines = filterByTranquilo(wines);
-	console.log(filteredWines);
 	useEffect(() => {
 		chargeWines(setWines);
 	}, []);
 	return (
-		<>
-			{filteredWines.map(wine => (
-				<div key={wine._id}>
-					<CardWine wine={wine} />
-				</div>
-			))}
-		</>
+		<StyledTotalContainer>
+			<h1>VINOS TRANQUILOS</h1>
+			<StyledWinesContainer>
+				{filteredWines.map(wine => (
+					<div key={wine._id}>
+						<CardWine wine={wine} />
+					</div>
+				))}
+			</StyledWinesContainer>
+		</StyledTotalContainer>
 	);
 };
 
