@@ -22,14 +22,17 @@ winesController.getWineById = async (req, res) => {
 };
 
 winesController.createWine = async (req, res) => {
-  const { name, countrie, grape, color, description } = req.body;
+  const { ruteImg, name, countrie, grape, color, wineStyle, description } =
+    req.body;
   if (!name || !countrie) return res.status(400).send({ error: 'bad request' });
   try {
     const newWine = new WineModel({
+      ruteImg,
       name,
       countrie,
       grape,
       color,
+      wineStyle,
       description,
     });
     await newWine.save();

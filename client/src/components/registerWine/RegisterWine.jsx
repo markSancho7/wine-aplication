@@ -6,10 +6,12 @@ import { createPortal } from 'react-dom';
 const RegisterWine = ({ closeModal, children }) => {
 	if (!children) return;
 	const [newWine, setNewWine] = useState({
+		ruteImg: '',
 		name: '',
 		countrie: '',
 		grape: '',
 		color: '',
+		wineStyle: '',
 		description: ''
 	});
 
@@ -18,6 +20,14 @@ const RegisterWine = ({ closeModal, children }) => {
 			<button onClick={closeModal}>X</button>
 			<p>REGISTER WINE</p>
 			<form onSubmit={event => handleSubmit(event)}>
+				<div>
+					<label>Rute Image</label>
+					<input
+						type='text'
+						name='ruteImg'
+						onChange={event => creatingWine(event.target, newWine, setNewWine)}
+					/>
+				</div>
 				<div>
 					<label>Name Wine</label>
 					<input
@@ -47,6 +57,14 @@ const RegisterWine = ({ closeModal, children }) => {
 					<input
 						type='text'
 						name='color'
+						onChange={event => creatingWine(event.target, newWine, setNewWine)}
+					/>
+				</div>
+				<div>
+					<label>Wine Style</label>
+					<input
+						type='text'
+						name='wineStyle'
 						onChange={event => creatingWine(event.target, newWine, setNewWine)}
 					/>
 				</div>

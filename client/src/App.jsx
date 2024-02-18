@@ -1,15 +1,16 @@
 import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyles } from './styles/GlobalStyles';
-import RegisterWine from './components/registerWine/RegisterWine';
-import AllWines from './components/allWines/AllWines';
-import Main from './pages/Main';
+import Router from './router/Router';
+import CartProvider from './providers/Cart.Provider';
 
 const App = () => {
 	return (
 		<>
 			<BrowserRouter>
 				<GlobalStyles />
-				<Main />
+				<CartProvider>
+					<Router />
+				</CartProvider>
 			</BrowserRouter>
 		</>
 	);

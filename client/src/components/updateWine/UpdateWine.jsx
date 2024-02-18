@@ -5,17 +5,22 @@ import { useState } from 'react';
 
 const UpdateWine = ({ wine, closeModal, children }) => {
 	if (!children) return;
-	const [updateWine, setUpdateWine] = useState({
-		name: '',
-		countrie: '',
-		grape: '',
-		color: '',
-		description: ''
-	});
+	const [updateWine, setUpdateWine] = useState(wine);
 	return createPortal(
 		<>
 			<button onClick={closeModal}>X</button>
 			<form onSubmit={event => handleSubmit(event)}>
+				<div>
+					<label>Rute Image</label>
+					<input
+						type='text'
+						name='ruteImg'
+						defaultValue={wine.ruteImg}
+						onChange={event =>
+							changePropsWine(event.target, updateWine, setUpdateWine)
+						}
+					/>
+				</div>
 				<div>
 					<label>Name Wine</label>
 					<input
