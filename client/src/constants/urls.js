@@ -2,7 +2,7 @@ const PORT = 3000;
 
 const URL_BASE = `http://localhost:${PORT}/`;
 const API_WINES = URL_BASE + 'api/wines';
-const API_AUTH = URL_BASE + '/api/auth';
+const API_AUTH = URL_BASE + 'api/auth';
 
 const AUTH_LOGIN = API_AUTH + '/login';
 const AUTH_REGISTER = API_AUTH + '/register';

@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import { StyledUlNavBar, StyledLiNavBar } from './styles';
+import LoginForm from '../login-form/LoginForm';
+import CreateForm from '../create-form/CreateForm';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const NavBar = () => {
+	const { userData } = useContext(AuthContext);
 	return (
 		<nav>
 			<StyledUlNavBar>
@@ -20,6 +25,8 @@ const NavBar = () => {
 				<Link to='/naranja'>
 					<StyledLiNavBar>Vinos Naranjas</StyledLiNavBar>
 				</Link>
+				{!userData && <LoginForm />}
+				{!userData && <CreateForm />}
 			</StyledUlNavBar>
 		</nav>
 	);
