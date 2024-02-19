@@ -4,6 +4,7 @@ import LoginForm from '../login-form/LoginForm';
 import CreateForm from '../create-form/CreateForm';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import LogOut from '../logOut/LogOut';
 
 const NavBar = () => {
 	const { userData } = useContext(AuthContext);
@@ -27,6 +28,7 @@ const NavBar = () => {
 				</Link>
 				{!userData && <LoginForm />}
 				{!userData && <CreateForm />}
+				{userData && <LogOut />}
 			</StyledUlNavBar>
 		</nav>
 	);

@@ -40,6 +40,9 @@ const StyledNumberCounter = styled.p`
 	margin: 0px;
 	padding: 0px;
 `;
+const StyledAdminButtons = styled.div`
+	display: ${({ $isVisible }) => ($isVisible ? 'none' : 'block')};
+`;
 
 export {
 	StyledCard,
@@ -47,5 +50,6 @@ export {
 	StyledCardInfo,
 	StyledCardShop,
 	StyledCounter,
-	StyledNumberCounter
+	StyledNumberCounter,
+	StyledAdminButtons
 };

@@ -1,8 +1,9 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import UpdateWine from '../updateWine/UpdateWine';
 import { deleteData } from '../../utils/api';
 import { URLS } from '../../constants/urls';
 import {
+	StyledAdminButtons,
 	StyledCard,
 	StyledCardImg,
 	StyledCardInfo,
@@ -11,12 +12,23 @@ import {
 	StyledNumberCounter
 } from './styles';
 import { CartContext } from '../../contexts/CartContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const CardWine = ({ wine }) => {
 	const [content, setContent] = useState();
 	const [counter, setCounter] = useState(1);
 
 	const { cart, setCart } = useContext(CartContext);
+	const { userData } = useContext(AuthContext);
+	const [isVisible, setIsVisible] = useState(true);
+	useEffect(() => {
+		if (!userData) {
+			return;
+		} else if (userData.email === 'admin@gmail.com') {
+			console.log(userData.email, isVisible);
+			return setIsVisible(!isVisible);
+		}
+	}, [userData]);
 	return (
 		<StyledCard>
 			<StyledCardImg>
@@ -28,13 +40,13 @@ const CardWine = ({ wine }) => {
 					<p>{wine.countrie}</p>
 					<p>{wine.grape}</p>
 				</div>
-				<div>
+				<StyledAdminButtons $isVisible={isVisible}>
 					<button onClick={() => setContent('ir a la modal')}>Edit</button>
 					<button onClick={() => userDelete(wine)}>Delete</button>
 					<UpdateWine wine={wine} closeModal={() => setContent()}>
 						{content}
 					</UpdateWine>
-				</div>
+				</StyledAdminButtons>
 			</StyledCardInfo>
 			<StyledCardShop>
 				<button>likes</button>

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { loginRequest } from '../../utils/auth.api';
+import { StyledForm } from './styles';
 
 const LoginForm = () => {
 	const { userData, setUserData, loading } = useContext(AuthContext);
@@ -10,6 +11,7 @@ const LoginForm = () => {
 		password: ''
 	});
 	const navigate = useNavigate();
+	const [loginVisible, setLoginVisible] = useState(true);
 
 	useEffect(() => {
 		if (!userData) return;
@@ -19,27 +21,37 @@ const LoginForm = () => {
 	if (loading) return;
 
 	return (
-		<form onSubmit={event => handleSubmit(event, loginData, setUserData)}>
-			<div>
-				<label htmlFor='email'>Email</label>
-				<input
-					type='text'
-					value={loginData.email}
-					onInput={ev => setLoginData({ ...loginData, email: ev.target.value })}
-				/>
-			</div>
-			<div>
-				<label htmlFor='password'>Password</label>
-				<input
-					type='text'
-					value={loginData.password}
-					onInput={ev =>
-						setLoginData({ ...loginData, password: ev.target.value })
-					}
-				/>
-			</div>
-			<button>LOGIN</button>
-		</form>
+		<>
+			<button onClick={() => changeLoginVisible(loginVisible, setLoginVisible)}>
+				login
+			</button>
+			<StyledForm
+				$isVisible={loginVisible}
+				onSubmit={event => handleSubmit(event, loginData, setUserData)}
+			>
+				<div>
+					<label htmlFor='email'>Email</label>
+					<input
+						type='text'
+						value={loginData.email}
+						onInput={ev =>
+							setLoginData({ ...loginData, email: ev.target.value })
+						}
+					/>
+				</div>
+				<div>
+					<label htmlFor='password'>Password</label>
+					<input
+						type='text'
+						value={loginData.password}
+						onInput={ev =>
+							setLoginData({ ...loginData, password: ev.target.value })
+						}
+					/>
+				</div>
+				<button>LOGIN</button>
+			</StyledForm>
+		</>
 	);
 };
 
@@ -53,4 +65,7 @@ const handleSubmit = async (event, loginData, setUserData) => {
 	}
 };
 
+const changeLoginVisible = (loginVisible, setLoginVisible) => {
+	setLoginVisible(!loginVisible);
+};
 export default LoginForm;
