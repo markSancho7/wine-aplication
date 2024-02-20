@@ -46,7 +46,6 @@ const CardWine = ({ wine }) => {
 				}
 			</StyledCardInfo>
 			<StyledCardShop>
-				<button>likes</button>
 				<div>
 					<StyledCounter>
 						<button onClick={() => counterNegative(counter, setCounter)}>
@@ -57,8 +56,9 @@ const CardWine = ({ wine }) => {
 							+
 						</button>
 					</StyledCounter>
-					<button onClick={() => updateCart(wine, cart, setCart, counter)}>
-						carrito
+					<button onClick={() => updateCart(wine, cart, setCart, counter)}
+					>
+						add
 					</button>
 				</div>
 			</StyledCardShop>

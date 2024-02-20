@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { StyledUlNavBar, StyledLiNavBar } from './styles';
+import { StyledUlNavBar, StyledLiNavBar, StyledContainerLogin, StyledLinkNavBar } from './styles';
 import LoginForm from '../login-form/LoginForm';
 import CreateForm from '../create-form/CreateForm';
 import { useContext } from 'react';
@@ -11,25 +10,26 @@ const NavBar = () => {
 	return (
 		<nav>
 			<StyledUlNavBar>
-				<Link to='/'>
+				<StyledLinkNavBar to='/'>
 					<StyledLiNavBar>HOME</StyledLiNavBar>
-				</Link>
-				<Link to='/tranquilos'>
+				</StyledLinkNavBar>
+				<StyledLinkNavBar to='/tranquilos'>
 					<StyledLiNavBar>Vinos Tranquilos</StyledLiNavBar>
-				</Link>
-				<Link to='/espumosos'>
+				</StyledLinkNavBar>
+				<StyledLinkNavBar to='/espumosos'>
 					<StyledLiNavBar>Espumosos</StyledLiNavBar>
-				</Link>
-				<Link to='/jerez'>
+				</StyledLinkNavBar>
+				<StyledLinkNavBar to='/jerez'>
 					<StyledLiNavBar>Jerez</StyledLiNavBar>
-				</Link>
-				<Link to='/naranja'>
+				</StyledLinkNavBar>
+				<StyledLinkNavBar to='/naranja'>
 					<StyledLiNavBar>Vinos Naranjas</StyledLiNavBar>
-				</Link>
-				
-				{!userData && <LoginForm />}
-				{!userData && <CreateForm />}
-				{userData && <LogOut />}
+				</StyledLinkNavBar>
+				<StyledContainerLogin>
+					{!userData && <LoginForm />}
+					{!userData && <CreateForm />}
+					{userData && <LogOut />}
+				</StyledContainerLogin>
 			</StyledUlNavBar>
 		</nav>
 	);

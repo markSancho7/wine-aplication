@@ -6,7 +6,12 @@ const StyledCard = styled.div`
 	align-items: center;
 	border: 1px solid black;
 	width: 450px;
-	height: 250px;
+	height: 220px;
+	margin: 5px;
+	transition: all 0.3s ease;
+	&&:hover{
+		box-shadow: 0px 0px 5px 1px black;
+	}
 `;
 const StyledCardImg = styled.div`
 	display: flex;
