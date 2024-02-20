@@ -5,6 +5,7 @@ import { StyledForm } from './styles';
 
 const CreateForm = () => {
 	const [user, setUser] = useState({
+		userName:'',
 		email: '',
 		password: ''
 	});
@@ -22,6 +23,14 @@ const CreateForm = () => {
 				onSubmit={ev => handleSubmit(ev, user)}
 				$isVisible={registerVisible}
 			>
+				<div>
+					<label htmlFor='userName'>UserName</label>
+					<input
+						type='text'
+						value={user.userName}
+						onInput={ev => setUser({ ...user, userName: ev.target.value })}
+					/>
+				</div>
 				<div>
 					<label htmlFor='email'>Email</label>
 					<input

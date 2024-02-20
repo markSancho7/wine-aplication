@@ -6,6 +6,7 @@ import Home from '../pages/home/Home';
 import Tranquilos from '../pages/tranquilos/Tranquilos';
 import Jerez from '../pages/jerez/Jerez';
 import Naranja from '../pages/naranja/Naranja';
+import WineDetails from '../components/wineDetails/WIneDetails';
 
 const Router = () => {
 	return (
@@ -16,6 +17,7 @@ const Router = () => {
 				<Route path='espumosos' element={<Espumosos />} />
 				<Route path='jerez' element={<Jerez />} />
 				<Route path='naranja' element={<Naranja />} />
+				<Route path='/wineDetails/' element={<WineDetails/>}/>
 			</Route>
 		</Routes>
 	);

@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const usersRoutes = require('./routes/users.routes');
 const winesRoutes = require('./routes/wines.routes');
 const authRoutes = require('./routes/auth.routes');
+const opinionsRoutes = require('./routes/opinions.routes');
 
 require('dotenv').config();
 // Rutas
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use('/api/wines', winesRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/opinions', opinionsRoutes);
 
 const startServer = async () => {
   try {

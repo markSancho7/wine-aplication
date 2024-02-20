@@ -31,6 +31,7 @@ authController.login = async (req, res) => {
     });
 
     return res.cookie('token', token).send({
+
       id: userFound._id,
       name: userFound.name,
       username: userFound.username,
@@ -38,6 +39,7 @@ authController.login = async (req, res) => {
       active: userFound.active,
       image: userFound.image,
       color: userFound.color,
+      admin:email === "admin@gmail.com"
     });
   } catch (error) {
     return res.status(500).send({ error: error.message });

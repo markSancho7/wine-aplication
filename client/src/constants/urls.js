@@ -2,6 +2,7 @@ const PORT = 3000;
 
 const URL_BASE = `http://localhost:${PORT}/`;
 const API_WINES = URL_BASE + 'api/wines';
+const API_OPINIONS = URL_BASE + 'api/opinions'
 const API_AUTH = URL_BASE + 'api/auth';
 
 const AUTH_LOGIN = API_AUTH + '/login';
@@ -10,6 +11,7 @@ const AUTH_VERYFY_TOKEN = API_AUTH + '/verify-token';
 
 export const URLS = {
 	API_WINES,
+	API_OPINIONS,
 	AUTH_LOGIN,
 	AUTH_REGISTER,
 	AUTH_VERYFY_TOKEN

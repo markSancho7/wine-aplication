@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import UpdateWine from '../updateWine/UpdateWine';
 import { deleteData } from '../../utils/api';
 import { URLS } from '../../constants/urls';
@@ -13,6 +13,7 @@ import {
 } from './styles';
 import { CartContext } from '../../contexts/CartContext';
 import { AuthContext } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const CardWine = ({ wine }) => {
 	const [content, setContent] = useState();
@@ -20,18 +21,12 @@ const CardWine = ({ wine }) => {
 
 	const { cart, setCart } = useContext(CartContext);
 	const { userData } = useContext(AuthContext);
-	const [isVisible, setIsVisible] = useState(true);
-	useEffect(() => {
-		if (!userData) {
-			return;
-		} else if (userData.email === 'admin@gmail.com') {
-			console.log(userData.email, isVisible);
-			return setIsVisible(!isVisible);
-		}
-	}, [userData]);
+
+	const navigate = useNavigate();
+	
 	return (
-		<StyledCard>
-			<StyledCardImg>
+		<StyledCard >
+			<StyledCardImg onClick={()=>navigate('/wineDetails/', {state:wine})}>
 				<img src={wine.ruteImg} alt='' />
 			</StyledCardImg>
 			<StyledCardInfo>
@@ -40,13 +35,15 @@ const CardWine = ({ wine }) => {
 					<p>{wine.countrie}</p>
 					<p>{wine.grape}</p>
 				</div>
-				<StyledAdminButtons $isVisible={isVisible}>
+				{userData?.admin &&
+				<StyledAdminButtons>
 					<button onClick={() => setContent('ir a la modal')}>Edit</button>
 					<button onClick={() => userDelete(wine)}>Delete</button>
 					<UpdateWine wine={wine} closeModal={() => setContent()}>
 						{content}
 					</UpdateWine>
 				</StyledAdminButtons>
+				}
 			</StyledCardInfo>
 			<StyledCardShop>
 				<button>likes</button>

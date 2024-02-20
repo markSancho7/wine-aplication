@@ -9,7 +9,6 @@ export const AuthProvider = ({ children }) => {
 	useEffect(() => {
 		checkLogin(setUserData, setLoading);
 	}, []);
-
 	return (
 		<AuthContext.Provider value={{ userData, setUserData, loading }}>
 			{children}
