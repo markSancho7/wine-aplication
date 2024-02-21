@@ -9,6 +9,7 @@ import {
 	StyledCardInfo,
 	StyledCardShop,
 	StyledCounter,
+	StyledImg,
 	StyledNumberCounter
 } from './styles';
 import { CartContext } from '../../contexts/CartContext';
@@ -46,7 +47,6 @@ const CardWine = ({ wine }) => {
 				}
 			</StyledCardInfo>
 			<StyledCardShop>
-				<div>
 					<StyledCounter>
 						<button onClick={() => counterNegative(counter, setCounter)}>
 							-
@@ -56,11 +56,7 @@ const CardWine = ({ wine }) => {
 							+
 						</button>
 					</StyledCounter>
-					<button onClick={() => updateCart(wine, cart, setCart, counter)}
-					>
-						add
-					</button>
-				</div>
+					<StyledImg src="public/cart.svg" alt=""  onClick={() => updateCart(wine, cart, setCart, counter)}/>
 			</StyledCardShop>
 		</StyledCard>
 	);

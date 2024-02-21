@@ -25,6 +25,11 @@ const GlobalStyles = createGlobalStyle`
     margin-bottom: 0;
     padding-left: 0;
   }
+  textarea{
+    resize: none;
+    height: 60px;
+    
+  }
 `;
 
 export { GlobalStyles };

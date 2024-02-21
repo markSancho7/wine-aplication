@@ -20,6 +20,9 @@ const StyledCardImg = styled.div`
 	width: 100px;
 	height: 250px;
 `;
+const StyledImg = styled.img`
+margin-top: 10px;
+width:20px;`
 const StyledCardInfo = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -56,5 +59,6 @@ export {
 	StyledCardShop,
 	StyledCounter,
 	StyledNumberCounter,
-	StyledAdminButtons
+	StyledAdminButtons,
+	StyledImg
 };

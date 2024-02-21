@@ -1,32 +1,35 @@
-import { useEffect, useState } from "react";
-import { URLS } from "../../constants/urls";
-import { getData } from "../../utils/api";
+import { useEffect, useState } from 'react';
+import { URLS } from '../../constants/urls';
+import { getData } from '../../utils/api';
+import { StyledContainerOp, StyledContainerOpinions, StyledNameOpinion, StyledOpinion } from './styles';
 
-const AllOpinions = (wine) =>{
-const [opinions, setOpinions]= useState([])
+const AllOpinions = wine => {
+	const [opinions, setOpinions] = useState([]);
 
-useEffect(() => {
-    chargeOpinions(setOpinions);
-}, []);
+	useEffect(() => {
+		chargeOpinions(setOpinions);
+	}, []);
 
+	const wineOpinion = filterWineOpinion(opinions, wine);
 
-const wineOpinion = filterWineOpinion(opinions, wine)
-
-return(<>
-    {wineOpinion.map(opinion=>(
-        <div key={opinion._id}>
-        <p>{opinion.userName}</p>
-        <p >{opinion.opinion}</p>
-        </div>
-    ))}
-</>)
-
-}
-const filterWineOpinion =(opinions, wine)=>{
-    return opinions.filter(opinion=> opinion.wineId === wine.wine._id)
- }
+	return (
+		<>
+			<StyledContainerOpinions>
+				{wineOpinion.map(opinion => (
+					<StyledContainerOp key={opinion._id}>
+						<StyledNameOpinion>{opinion.userName}</StyledNameOpinion>
+						<StyledOpinion>{opinion.opinion}</StyledOpinion>
+					</StyledContainerOp>
+				))}
+			</StyledContainerOpinions>
+		</>
+	);
+};
+const filterWineOpinion = (opinions, wine) => {
+	return opinions.filter(opinion => opinion.wineId === wine.wine._id);
+};
 const chargeOpinions = async setWines => {
 	const data = await getData(URLS.API_OPINIONS);
 	setWines(data);
 };
-export default AllOpinions
+export default AllOpinions;

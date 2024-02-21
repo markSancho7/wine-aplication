@@ -2,15 +2,15 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { URLS } from '../../constants/urls';
 import { postData } from '../../utils/api';
+import { StyledForm, StyledTotalContainer } from './styles';
 
 const Foro = ({ wine }) => {
 	const { userData } = useContext(AuthContext);
 	const [newOpinion, setNewOpinion] = useState({});
 	return (
-		<>
-			<p>FOROOO</p>
-			<form onSubmit={event => handleSubmit(event)}>
-				<label>opinion</label>
+		<StyledTotalContainer>
+			<p>Escribe tu opinon sobre éste vino</p>
+			<StyledForm onSubmit={event => handleSubmit(event)}>
 				<textarea
 					type='text'
 					name='opinion'
@@ -21,8 +21,8 @@ const Foro = ({ wine }) => {
 				<button type='submit' onClick={()=>saveOpinion(newOpinion)}>
 					enviar
 				</button>
-			</form>
-		</>
+			</StyledForm>
+		</StyledTotalContainer>
 	);
 };
 const handleSubmit = event => {
@@ -36,7 +36,7 @@ const getOpinion = (input, setNewOpinion, userData, wine) => {
 	console.log(input.value, userData.email, wine._id);
 	setNewOpinion({
 		wineId: wine._id,
-		userName: userData.email,
+		userName: userData.username,
 		opinion: input.value
 	});
 };

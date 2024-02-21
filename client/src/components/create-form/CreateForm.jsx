@@ -5,7 +5,7 @@ import { StyledForm } from './styles';
 
 const CreateForm = () => {
 	const [user, setUser] = useState({
-		userName:'',
+		username:'',
 		email: '',
 		password: ''
 	});
@@ -24,11 +24,11 @@ const CreateForm = () => {
 				$isVisible={registerVisible}
 			>
 				<div>
-					<label htmlFor='userName'>UserName</label>
+					<label htmlFor='username'>Username</label>
 					<input
 						type='text'
-						value={user.userName}
-						onInput={ev => setUser({ ...user, userName: ev.target.value })}
+						value={user.username}
+						onInput={ev => setUser({ ...user, username: ev.target.value })}
 					/>
 				</div>
 				<div>

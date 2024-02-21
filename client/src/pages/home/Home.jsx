@@ -1,39 +1,39 @@
-import { useState } from 'react';
-import AllWines from '../../components/allWines/AllWines';
-import RegisterWine from '../../components/registerWine/RegisterWine';
+
+
 import { StyledTotalContainer, StyledWinesContainer } from './styles';
+import useFilter from '../../hooks/useFilter';
+import Filters from '../../components/filters/Filters';
+import { useEffect, useState } from 'react';
+import { getData } from '../../utils/api';
+import { URLS } from '../../constants/urls';
+import CardWine from '../../components/cardWine/CardWine';
 
 const Home = () => {
-	const [content, setContent] = useState();
-	const [wineName, setWineName] = useState();
-	const [wineGrape, setWineGrape] = useState();
+	const [wines, setWines] = useState([]);
+	useEffect(() => {
+		chargeWines(setWines);
+	}, []);
+	const {filteredWines, setSearchByName, setSearchByGrape} = useFilter(wines)
 	return (
 		<StyledTotalContainer>
-			<h1>TODOS LOS VINOS</h1>
-			<div>
-				<label>Filtrar por nombre</label>
-				<input
-					onChange={event => filterByName(event.target.value, setWineName)}
-				></input>
-			</div>
-			<div>
-				<label>Filtrar por uva</label>
-				<input
-					onChange={event => filterByGrape(event.target.value, setWineGrape)}
-				></input>
-			</div>
-			<button onClick={() => setContent('ir a la modal')}>Register Wine</button>
-			<RegisterWine closeModal={() => setContent()}>{content}</RegisterWine>
-			<StyledWinesContainer>
-				<AllWines filteredName={wineName} filteredGrape={wineGrape} />
-			</StyledWinesContainer>
+			<Filters filterByGrape={setSearchByGrape} filterByName={setSearchByName} />
+
+			<StyledTotalContainer>
+				<h1>TODOS LOS VINOS</h1>
+				<StyledWinesContainer>
+					{filteredWines.map(wine => (
+						<div key={wine._id}>
+							<CardWine wine={wine} />
+						</div>
+					))}
+				</StyledWinesContainer>
+			</StyledTotalContainer>
 		</StyledTotalContainer>
 	);
 };
-const filterByGrape = (value, setWineGrape) => {
-	setWineGrape(value);
+const chargeWines = async setWines => {
+	const data = await getData(URLS.API_WINES);
+	setWines(data);
 };
-const filterByName = (value, setWineName) => {
-	setWineName(value);
-};
+
 export default Home;

@@ -7,7 +7,7 @@ import { StyledTotalContainer, StyledWinesContainer } from './styles';
 const Jerez = () => {
 	const [wines, setWines] = useState([]);
 
-	let filteredWines = filterByJerez(wines);
+	const filteredWines = filterByJerez(wines);
 	useEffect(() => {
 		chargeWines(setWines);
 	}, []);

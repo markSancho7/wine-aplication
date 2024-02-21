@@ -47,7 +47,7 @@ authController.login = async (req, res) => {
 };
 authController.register = async (req, res) => {
   const { name, username, email, password } = req.body;
-
+  console.log(req.body);
   try {
     // Generar un hash de la contraseña
     const saltRounds = 10; // Número de rondas de sal para la encriptación
@@ -88,6 +88,7 @@ authController.verifyToken = async (req, res) => {
       active: userFound.active,
       image: userFound.image,
       color: userFound.color,
+      admin:userFound.email === "admin@gmail.com"
     });
   } catch (err) {
     return res.status(500).json({ error: err });
