@@ -9,10 +9,13 @@ const RegisterWine = ({ closeModal, children }) => {
 	const [newWine, setNewWine] = useState({
 		ruteImg: '',
 		name: '',
+		price: '',
+		producer: '',
 		countrie: '',
 		grape: '',
-		color: '',
-		wineStyle: '',
+		color: 'blanco',
+		graduation: '',
+		wineStyle: 'tranquilo',
 		description: ''
 	});
 
@@ -38,6 +41,14 @@ const RegisterWine = ({ closeModal, children }) => {
 					/>
 				</div>
 				<div>
+					<label>Price</label>
+					<input
+						type='text'
+						name='price'
+						onChange={event => creatingWine(event.target, newWine, setNewWine)}
+					/>
+				</div>
+				<div>
 					<label>Countrie</label>
 					<input
 						type='text'
@@ -54,20 +65,45 @@ const RegisterWine = ({ closeModal, children }) => {
 					/>
 				</div>
 				<div>
-					<label>Color Wine</label>
+					<label>Productor</label>
 					<input
 						type='text'
-						name='color'
+						name='producer'
 						onChange={event => creatingWine(event.target, newWine, setNewWine)}
 					/>
 				</div>
 				<div>
-					<label>Wine Style</label>
+					<label>Graduación</label>
 					<input
 						type='text'
-						name='wineStyle'
+						name='graduation'
 						onChange={event => creatingWine(event.target, newWine, setNewWine)}
 					/>
+				</div>
+				<div>
+					<label>Color</label>
+					<select
+						name='color'
+						id='color'
+						onChange={event => creatingWine(event.target, newWine, setNewWine)}
+					>
+						<option value='blanco'>Blanco</option>
+						<option value='tinto'>Tinto</option>
+						<option value='rosado'>Rosado</option>
+					</select>
+				</div>
+				<div>
+					<label>Tipo de vino</label>
+					<select
+						name='wineStyle'
+						id='wineStyle'
+						onChange={event => creatingWine(event.target, newWine, setNewWine)}
+					>
+						<option value='tranquilo'>Tranquilo</option>
+						<option value='espumoso'>Espumoso</option>
+						<option value='jerez'>Jerez</option>
+						<option value='naranja'>Naranja</option>
+					</select>
 				</div>
 				<div>
 					<label>Description</label>

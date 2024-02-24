@@ -14,7 +14,7 @@ const NavBar = () => {
 					<StyledLiNavBar>HOME</StyledLiNavBar>
 				</StyledLinkNavBar>
 				<StyledLinkNavBar to='/tranquilos'>
-					<StyledLiNavBar>Vinos Tranquilos</StyledLiNavBar>
+					<StyledLiNavBar>Tranquilos</StyledLiNavBar>
 				</StyledLinkNavBar>
 				<StyledLinkNavBar to='/espumosos'>
 					<StyledLiNavBar>Espumosos</StyledLiNavBar>
@@ -23,7 +23,7 @@ const NavBar = () => {
 					<StyledLiNavBar>Jerez</StyledLiNavBar>
 				</StyledLinkNavBar>
 				<StyledLinkNavBar to='/naranja'>
-					<StyledLiNavBar>Vinos Naranjas</StyledLiNavBar>
+					<StyledLiNavBar>Naranjas</StyledLiNavBar>
 				</StyledLinkNavBar>
 				<StyledContainerLogin>
 					{!userData && <LoginForm />}

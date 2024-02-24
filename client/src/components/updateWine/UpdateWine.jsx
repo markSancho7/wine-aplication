@@ -34,6 +34,17 @@ const UpdateWine = ({ wine, closeModal, children }) => {
 					/>
 				</div>
 				<div>
+					<label>Price</label>
+					<input
+						type='text'
+						name='price'
+						defaultValue={wine.price}
+						onChange={event =>
+							changePropsWine(event.target, updateWine, setUpdateWine)
+						}
+					/>
+				</div>
+				<div>
 					<label>Countrie</label>
 					<input
 						type='text'
@@ -56,25 +67,46 @@ const UpdateWine = ({ wine, closeModal, children }) => {
 					/>
 				</div>
 				<div>
-					<label>Color Wine</label>
+					<label>Producer</label>
 					<input
 						type='text'
-						name='color'
-						defaultValue={wine.color}
+						name='producer'
+						defaultValue={wine.producer}
 						onChange={event =>
 							changePropsWine(event.target, updateWine, setUpdateWine)
 						}
 					/>
 				</div>
 				<div>
-					<label>Wine Style</label>
-					<input
-						type='text'
-						name='wineStyle'
+					<label>Color Wine</label>
+					<select
+						name='color'
+						id='color'
+						defaultValue={wine.color}
 						onChange={event =>
 							changePropsWine(event.target, updateWine, setUpdateWine)
 						}
-					/>
+					>
+						<option value='blanco'>Blanco</option>
+						<option value='tinto'>Tinto</option>
+						<option value='rosado'>Rosado</option>
+					</select>
+				</div>
+				<div>
+					<label>Tipo de vino</label>
+					<select
+						name='wineStyle'
+						id='wineStyle'
+						defaultValue={wine.wineStyle}
+						onChange={event =>
+							changePropsWine(event.target, updateWine, setUpdateWine)
+						}
+					>
+						<option value='tranquilo'>Tranquilo</option>
+						<option value='espumoso'>Espumoso</option>
+						<option value='jerez'>Jerez</option>
+						<option value='naranja'>Naranja</option>
+					</select>
 				</div>
 				<div>
 					<label>Description</label>

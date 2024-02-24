@@ -24,10 +24,10 @@ const CardWine = ({ wine }) => {
 	const { userData } = useContext(AuthContext);
 
 	const navigate = useNavigate();
-	
+
 	return (
-		<StyledCard >
-			<StyledCardImg onClick={()=>navigate('/wineDetails/', {state:wine})}>
+		<StyledCard>
+			<StyledCardImg onClick={() => navigate('/wineDetails/', { state: wine })}>
 				<img src={wine.ruteImg} alt='' />
 			</StyledCardImg>
 			<StyledCardInfo>
@@ -36,27 +36,32 @@ const CardWine = ({ wine }) => {
 					<p>{wine.countrie}</p>
 					<p>{wine.grape}</p>
 				</div>
-				{userData?.admin &&
-				<StyledAdminButtons>
-					<button onClick={() => setContent('ir a la modal')}>Edit</button>
-					<button onClick={() => userDelete(wine)}>Delete</button>
-					<UpdateWine wine={wine} closeModal={() => setContent()}>
-						{content}
-					</UpdateWine>
-				</StyledAdminButtons>
-				}
+				{userData?.admin && (
+					<StyledAdminButtons>
+						<button onClick={() => setContent('ir a la modal')}>Edit</button>
+						<button onClick={() => userDelete(wine)}>Delete</button>
+						<UpdateWine wine={wine} closeModal={() => setContent()}>
+							{content}
+						</UpdateWine>
+					</StyledAdminButtons>
+				)}
 			</StyledCardInfo>
 			<StyledCardShop>
-					<StyledCounter>
-						<button onClick={() => counterNegative(counter, setCounter)}>
-							-
-						</button>
-						<StyledNumberCounter>{counter}</StyledNumberCounter>
-						<button onClick={() => counterPositive(counter, setCounter)}>
-							+
-						</button>
-					</StyledCounter>
-					<StyledImg src="public/cart.svg" alt=""  onClick={() => updateCart(wine, cart, setCart, counter)}/>
+				<p>{wine.price}€</p>
+				<StyledCounter>
+					<button onClick={() => counterNegative(counter, setCounter)}>
+						-
+					</button>
+					<StyledNumberCounter>{counter}</StyledNumberCounter>
+					<button onClick={() => counterPositive(counter, setCounter)}>
+						+
+					</button>
+				</StyledCounter>
+				<StyledImg
+					src='public/cart.svg'
+					alt=''
+					onClick={() => updateCart(wine, cart, setCart, counter)}
+				/>
 			</StyledCardShop>
 		</StyledCard>
 	);

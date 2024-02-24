@@ -6,6 +6,7 @@ import {
 	StyledContainerDetails,
 	StyledContainerImg,
 	StyledHr,
+	StyledIcon,
 	StyledNameWine,
 	StyledProperties,
 	StyledTotalContainer
@@ -27,17 +28,17 @@ const WineDetails = () => {
 					</StyledContainerImg>
 					<StyledContainerDetails>
 						<StyledProperties>
-							<p>Región</p>
+							<StyledIcon src='/public/location-dot-solid.svg' />
 							<p>{wine.countrie}</p>
 						</StyledProperties>
 						<StyledHr />
 						<StyledProperties>
-							<p>Uvas</p>
+							<StyledIcon src='/public/grapes.svg' />
 							<p>{wine.grape}</p>
 						</StyledProperties>
 						<StyledHr />
 						<StyledProperties>
-							<p>Color</p>
+							<StyledIcon src='/public/wine-bottle-solid.svg' alt='' />
 							<p>{wine.color}</p>
 						</StyledProperties>
 						<StyledHr />
@@ -46,7 +47,7 @@ const WineDetails = () => {
 				</StyledContainer>
 			</StyledTotalContainer>
 			<Foro wine={wine} />
-			<AllOpinions wine={wine}></AllOpinions>
+			<AllOpinions wine={wine} />
 		</>
 	);
 };

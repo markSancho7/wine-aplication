@@ -18,6 +18,7 @@ const Espumosos = () => {
 	return (
 		<StyledTotalContainer>
 			<Filters filterByGrape={setSearchByGrape} filterByName={setSearchByName} />
+			<h1>VINOS ESPUMOSOS</h1>
 			<StyledWinesContainer>
 				{winesFiltereds.map(wine => (
 					<div key={wine._id}>
