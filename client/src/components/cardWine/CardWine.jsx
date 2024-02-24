@@ -70,6 +70,7 @@ const userDelete = async wine => {
 	await deleteData(`${URLS.API_WINES}/${wine._id}`);
 };
 const counterNegative = (counter, setCounter) => {
+	if (counter === 1) return;
 	const newCounter = counter - 1;
 	setCounter(newCounter);
 };
@@ -94,6 +95,7 @@ const updateCart = (wine, cart, setCart, counter) => {
 			{
 				_id: wine._id,
 				name: wine.name,
+				price: wine.price,
 				numberOfBottles: counter
 			}
 		];

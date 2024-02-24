@@ -38,16 +38,12 @@ const StyledIcon = styled.img`
 	height: 20px;
 `;
 
-const StyledHr = styled.hr`
-	background-color: red;
-`;
 export {
 	StyledContainerDetails,
 	StyledTotalContainer,
 	StyledContainerImg,
 	StyledContainer,
 	StyledProperties,
-	StyledHr,
 	StyledNameWine,
 	StyledIcon
 };

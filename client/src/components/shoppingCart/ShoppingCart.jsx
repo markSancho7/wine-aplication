@@ -16,20 +16,16 @@ const ShoppingCart = () => {
 				cart
 			</button>
 			<StyledContainerCart $isVisible={cartVisible}>
-				{cart.map(
-					article => (
-						console.log(article),
-						(
-							<StyledArticle key={article._id}>
-								<StyledArticleName>{article.numberOfBottles}</StyledArticleName>
-								<StyledArticleName>{article.name}</StyledArticleName>
-								<button onClick={() => deleteArticle(article, cart, setCart)}>
-									X
-								</button>
-							</StyledArticle>
-						)
-					)
-				)}
+				{cart.map(article => (
+					<StyledArticle key={article._id}>
+						<StyledArticleName>{article.numberOfBottles}</StyledArticleName>
+						<StyledArticleName>{article.name}</StyledArticleName>
+						<button onClick={() => deleteArticle(article, cart, setCart)}>
+							X
+						</button>
+					</StyledArticle>
+				))}
+				<p>Total = {totalPrice(cart)}€</p>
 			</StyledContainerCart>
 		</>
 	);
@@ -41,6 +37,15 @@ const changeCartVisible = (cartVisible, setCartVisible) => {
 
 const deleteArticle = (articleToDelete, cart, setCart) => {
 	setCart(cart.filter(article => article._id !== articleToDelete._id));
+};
+const totalPrice = cart => {
+	let total = 0;
+	cart.forEach(element => {
+		const price = element.price.replace(',', '.');
+		console.log(Number(price));
+		total += price * element.numberOfBottles;
+	});
+	return total;
 };
 
 export default ShoppingCart;
