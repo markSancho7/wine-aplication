@@ -9,7 +9,8 @@ import {
 	StyledImg,
 	StyledNameWine,
 	StyledProperties,
-	StyledTotalContainer
+	StyledTotalContainer,
+	StyledWineImg
 } from './styles';
 const WineDetails = () => {
 	const { state: wine } = useLocation();
@@ -24,7 +25,7 @@ const WineDetails = () => {
 				</StyledNameWine>
 				<StyledContainer>
 					<StyledContainerImg>
-						<img src={wine.ruteImg} alt='' />
+						<StyledWineImg src={wine.ruteImg} alt='' />
 					</StyledContainerImg>
 					<StyledContainerDetails>
 						<StyledProperties>

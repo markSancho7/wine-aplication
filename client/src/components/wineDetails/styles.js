@@ -24,7 +24,7 @@ const StyledContainerDetails = styled.div`
 `;
 
 const StyledContainerImg = styled.div`
-	width: 100px;
+	width: 120px;
 	display: flex;
 	align-items: center;
 `;
@@ -49,6 +49,11 @@ const StyledImg = styled.img`
 	filter: invert(100%);
 	border-radius: 5px;
 `;
+const StyledWineImg = styled.img`
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+`;
 
 export {
 	StyledContainerDetails,
@@ -58,5 +63,6 @@ export {
 	StyledProperties,
 	StyledNameWine,
 	StyledIcon,
-	StyledImg
+	StyledImg,
+	StyledWineImg
 };
