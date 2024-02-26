@@ -3,7 +3,10 @@ import { CartContext } from '../../contexts/CartContext';
 import {
 	StyledArticle,
 	StyledArticleName,
-	StyledContainerCart
+	StyledContainerCart,
+	StyledIcon,
+	StyledImg,
+	StyledTotalContainerCart
 } from './styles';
 
 const ShoppingCart = () => {
@@ -11,18 +14,24 @@ const ShoppingCart = () => {
 	const [cartVisible, setCartVisible] = useState(true);
 	return (
 		<>
-			<p>Shopping Cart ({cart.length})</p>
-			<button onClick={() => changeCartVisible(cartVisible, setCartVisible)}>
-				cart
-			</button>
+			<StyledTotalContainerCart>
+				<StyledImg
+					src='/public/cart.svg'
+					alt=''
+					onClick={() => changeCartVisible(cartVisible, setCartVisible)}
+				/>
+				<p>({cart.length})</p>
+			</StyledTotalContainerCart>
 			<StyledContainerCart $isVisible={cartVisible}>
 				{cart.map(article => (
 					<StyledArticle key={article._id}>
 						<StyledArticleName>{article.numberOfBottles}</StyledArticleName>
 						<StyledArticleName>{article.name}</StyledArticleName>
-						<button onClick={() => deleteArticle(article, cart, setCart)}>
-							X
-						</button>
+						<StyledIcon
+							src='/public/x-solid.svg'
+							alt=''
+							onClick={() => deleteArticle(article, cart, setCart)}
+						/>
 					</StyledArticle>
 				))}
 				<p>Total = {totalPrice(cart)}€</p>

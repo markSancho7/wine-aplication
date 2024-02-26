@@ -10,7 +10,8 @@ import {
 	StyledCardShop,
 	StyledCounter,
 	StyledImg,
-	StyledNumberCounter
+	StyledNumberCounter,
+	StyledWineName
 } from './styles';
 import { CartContext } from '../../contexts/CartContext';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -26,44 +27,56 @@ const CardWine = ({ wine }) => {
 	const navigate = useNavigate();
 
 	return (
-		<StyledCard>
-			<StyledCardImg onClick={() => navigate('/wineDetails/', { state: wine })}>
-				<img src={wine.ruteImg} alt='' />
-			</StyledCardImg>
-			<StyledCardInfo>
-				<div>
-					<h3>{wine.name}</h3>
-					<p>{wine.countrie}</p>
-					<p>{wine.grape}</p>
-				</div>
-				{userData?.admin && (
-					<StyledAdminButtons>
-						<button onClick={() => setContent('ir a la modal')}>Edit</button>
-						<button onClick={() => userDelete(wine)}>Delete</button>
-						<UpdateWine wine={wine} closeModal={() => setContent()}>
-							{content}
-						</UpdateWine>
-					</StyledAdminButtons>
-				)}
-			</StyledCardInfo>
-			<StyledCardShop>
-				<p>{wine.price}€</p>
-				<StyledCounter>
-					<button onClick={() => counterNegative(counter, setCounter)}>
-						-
-					</button>
-					<StyledNumberCounter>{counter}</StyledNumberCounter>
-					<button onClick={() => counterPositive(counter, setCounter)}>
-						+
-					</button>
-				</StyledCounter>
-				<StyledImg
-					src='public/cart.svg'
-					alt=''
-					onClick={() => updateCart(wine, cart, setCart, counter)}
-				/>
-			</StyledCardShop>
-		</StyledCard>
+		<>
+			<StyledCard>
+				<StyledCardImg
+					onClick={() => navigate('/wineDetails/', { state: wine })}
+				>
+					<img src={wine.ruteImg} alt='' />
+				</StyledCardImg>
+				<StyledCardInfo>
+					<div>
+						<StyledWineName>{wine.name}</StyledWineName>
+						<p>{wine.countrie}</p>
+						<p>{wine.grape}</p>
+					</div>
+				</StyledCardInfo>
+				<StyledCardShop>
+					<p>{wine.price}€</p>
+					<StyledCounter>
+						<button onClick={() => counterNegative(counter, setCounter)}>
+							-
+						</button>
+						<StyledNumberCounter>{counter}</StyledNumberCounter>
+						<button onClick={() => counterPositive(counter, setCounter)}>
+							+
+						</button>
+					</StyledCounter>
+					<StyledImg
+						src='public/cart.svg'
+						alt=''
+						onClick={() => updateCart(wine, cart, setCart, counter)}
+					/>
+				</StyledCardShop>
+			</StyledCard>
+			{userData?.admin && (
+				<StyledAdminButtons>
+					<StyledImg
+						src='/public/pencil-solid.svg'
+						alt=''
+						onClick={() => setContent('ir a la modal')}
+					/>
+					<StyledImg
+						src='/public/trash-can-solid.svg'
+						alt=''
+						onClick={() => userDelete(wine)}
+					/>
+					<UpdateWine wine={wine} closeModal={() => setContent()}>
+						{content}
+					</UpdateWine>
+				</StyledAdminButtons>
+			)}
+		</>
 	);
 };
 const userDelete = async wine => {

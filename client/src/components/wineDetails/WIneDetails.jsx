@@ -6,6 +6,7 @@ import {
 	StyledContainerDetails,
 	StyledContainerImg,
 	StyledIcon,
+	StyledImg,
 	StyledNameWine,
 	StyledProperties,
 	StyledTotalContainer
@@ -14,10 +15,10 @@ const WineDetails = () => {
 	const { state: wine } = useLocation();
 	return (
 		<>
-			<Link to={'/'}>
-				<button>back</button>
-			</Link>
 			<StyledTotalContainer>
+				<Link to={'/'}>
+					<StyledImg src='/public/arrow-left-solid.svg' alt='' />
+				</Link>
 				<StyledNameWine>
 					<p>{wine.name}</p>
 				</StyledNameWine>

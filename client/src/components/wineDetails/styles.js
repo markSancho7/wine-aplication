@@ -3,13 +3,15 @@ import styled from 'styled-components';
 const StyledTotalContainer = styled.div`
 	width: 600px;
 	padding: 20px;
-	border: solid 5px black;
 	margin-left: auto;
 	margin-right: auto;
+	background-color: white;
+	border-radius: 10px;
 `;
 const StyledNameWine = styled.div`
 	font-size: 25px;
 	margin-left: 30px;
+	color: #a92756;
 `;
 
 const StyledContainer = styled.div`
@@ -37,6 +39,16 @@ const StyledProperties = styled.div`
 const StyledIcon = styled.img`
 	height: 20px;
 `;
+const StyledImg = styled.img`
+	margin-top: 10px;
+	margin-left: 30px;
+	width: 40px;
+	height: 20px;
+	padding: 3px 5px;
+	background-color: #56d8a9;
+	filter: invert(100%);
+	border-radius: 5px;
+`;
 
 export {
 	StyledContainerDetails,
@@ -45,5 +57,6 @@ export {
 	StyledContainer,
 	StyledProperties,
 	StyledNameWine,
-	StyledIcon
+	StyledIcon,
+	StyledImg
 };

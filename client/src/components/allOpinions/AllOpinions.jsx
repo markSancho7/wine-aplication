@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import { URLS } from '../../constants/urls';
 import { getData } from '../../utils/api';
-import { StyledContainerOp, StyledContainerOpinions, StyledNameOpinion, StyledOpinion } from './styles';
+import {
+	StyledContainerOp,
+	StyledContainerOpinions,
+	StyledNameOpinion,
+	StyledOpinion
+} from './styles';
 
 const AllOpinions = wine => {
 	const [opinions, setOpinions] = useState([]);

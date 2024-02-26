@@ -1,6 +1,8 @@
-
-
-import { StyledTotalContainer, StyledWinesContainer } from './styles';
+import {
+	StyledPageName,
+	StyledTotalContainer,
+	StyledWinesContainer
+} from './styles';
 import useFilter from '../../hooks/useFilter';
 import Filters from '../../components/filters/Filters';
 import { useEffect, useState } from 'react';
@@ -13,13 +15,16 @@ const Home = () => {
 	useEffect(() => {
 		chargeWines(setWines);
 	}, []);
-	const {filteredWines, setSearchByName, setSearchByGrape} = useFilter(wines)
+	const { filteredWines, setSearchByName, setSearchByGrape } = useFilter(wines);
 	return (
 		<StyledTotalContainer>
-			<Filters filterByGrape={setSearchByGrape} filterByName={setSearchByName} />
+			<Filters
+				filterByGrape={setSearchByGrape}
+				filterByName={setSearchByName}
+			/>
 
 			<StyledTotalContainer>
-				<h1>TODOS LOS VINOS</h1>
+				<StyledPageName>TODOS LOS VINOS</StyledPageName>
 				<StyledWinesContainer>
 					{filteredWines.map(wine => (
 						<div key={wine._id}>

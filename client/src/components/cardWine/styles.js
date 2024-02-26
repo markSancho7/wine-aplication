@@ -4,13 +4,15 @@ const StyledCard = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid black;
-	width: 450px;
-	height: 220px;
+	width: 350px;
+	height: 200px;
 	margin: 5px;
 	transition: all 0.3s ease;
-	&&:hover{
-		box-shadow: 0px 0px 5px 1px black;
+	border-radius: 10px;
+	background-color: white;
+
+	&&:hover {
+		box-shadow: 0px 0px 5px 0px grey;
 	}
 `;
 const StyledCardImg = styled.div`
@@ -21,8 +23,14 @@ const StyledCardImg = styled.div`
 	height: 250px;
 `;
 const StyledImg = styled.img`
-margin-top: 10px;
-width:20px;`
+	margin-top: 10px;
+	width: 40px;
+	height: 20px;
+	padding: 3px 5px;
+	background-color: #56d8a9;
+	filter: invert(100%);
+	border-radius: 5px;
+`;
 const StyledCardInfo = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -49,7 +57,16 @@ const StyledNumberCounter = styled.p`
 	padding: 0px;
 `;
 const StyledAdminButtons = styled.div`
-	display: ${({ $isVisible }) => ($isVisible ? 'none' : 'block')};
+	display: flex;
+	gap: 5px;
+	margin-left: 5px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+`;
+const StyledWineName = styled.p`
+	font-size: 18px;
+	font-weight: bold;
+	color: #a92756;
 `;
 
 export {
@@ -60,5 +77,6 @@ export {
 	StyledCounter,
 	StyledNumberCounter,
 	StyledAdminButtons,
-	StyledImg
+	StyledImg,
+	StyledWineName
 };

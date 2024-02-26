@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { loginRequest } from '../../utils/auth.api';
-import { StyledForm } from './styles';
+import { StyledButtonLogin, StyledForm } from './styles';
 
 const LoginForm = () => {
 	const { userData, setUserData, loading } = useContext(AuthContext);
@@ -22,9 +22,11 @@ const LoginForm = () => {
 
 	return (
 		<>
-			<button onClick={() => changeLoginVisible(loginVisible, setLoginVisible)}>
-				login
-			</button>
+			<StyledButtonLogin
+				src='/public/user-solid.svg'
+				onClick={() => changeLoginVisible(loginVisible, setLoginVisible)}
+			/>
+
 			<StyledForm
 				$isVisible={loginVisible}
 				onSubmit={event => handleSubmit(event, loginData, setUserData)}

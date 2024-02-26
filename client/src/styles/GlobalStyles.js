@@ -12,8 +12,13 @@ const GlobalStyles = createGlobalStyle`
   }
   body{
     margin: 0;
-    font-family: sans-serif;
-    background-color: grey;
+    font-family: "Oswald", sans-serif;
+    background-color: #FFFAEA;
+    /* background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,213,170,1) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(166,49,99,0.7868389999657346) 100%);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100vh; */
   }
   a{
     text-decoration: none;

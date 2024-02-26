@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 const StyledTotalContainer = styled.div`
-	width: 1000px;
+	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
 `;
@@ -9,9 +9,11 @@ const StyledTotalContainer = styled.div`
 const StyledWinesContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	width: 1000px;
+	width: 720px;
 	margin-left: auto;
 	margin-right: auto;
 `;
-
-export { StyledTotalContainer, StyledWinesContainer };
+const StyledPageName = styled.h1`
+	color: #a92756;
+`;
+export { StyledTotalContainer, StyledWinesContainer, StyledPageName };

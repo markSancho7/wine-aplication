@@ -1,24 +1,23 @@
 import { useState } from 'react';
 import { URLS } from '../../constants/urls';
 import { createData } from '../../utils/users.api';
-import { StyledForm } from './styles';
+import { StyledButtonRegister, StyledForm } from './styles';
 
 const CreateForm = () => {
 	const [user, setUser] = useState({
-		username:'',
+		username: '',
 		email: '',
 		password: ''
 	});
 	const [registerVisible, setregisterVisible] = useState(true);
 	return (
 		<>
-			<button
+			<StyledButtonRegister
+				src='public/user-pen-solid.svg'
 				onClick={() =>
 					changeRegisterVisible(registerVisible, setregisterVisible)
 				}
-			>
-				register
-			</button>
+			/>
 			<StyledForm
 				onSubmit={ev => handleSubmit(ev, user)}
 				$isVisible={registerVisible}

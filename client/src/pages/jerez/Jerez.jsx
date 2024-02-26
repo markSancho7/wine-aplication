@@ -2,14 +2,18 @@ import { useEffect, useState } from 'react';
 import { URLS } from '../../constants/urls';
 import { getData } from '../../utils/api';
 import CardWine from '../../components/cardWine/CardWine';
-import { StyledTotalContainer, StyledWinesContainer } from './styles';
+import {
+	StyledPageName,
+	StyledTotalContainer,
+	StyledWinesContainer
+} from './styles';
 import useFilter from '../../hooks/useFilter';
 import Filters from '../../components/filters/Filters';
 
 const Jerez = () => {
 	const [wines, setWines] = useState([]);
 
-	const {filteredWines, setSearchByName, setSearchByGrape} = useFilter(wines)
+	const { filteredWines, setSearchByName, setSearchByGrape } = useFilter(wines);
 
 	const winesFiltereds = filterByJerez(filteredWines);
 	useEffect(() => {
@@ -17,7 +21,11 @@ const Jerez = () => {
 	}, []);
 	return (
 		<StyledTotalContainer>
-			<Filters filterByGrape={setSearchByGrape} filterByName={setSearchByName} />
+			<Filters
+				filterByGrape={setSearchByGrape}
+				filterByName={setSearchByName}
+			/>
+			<StyledPageName>VINOS DE JEREZ</StyledPageName>
 			<StyledWinesContainer>
 				{winesFiltereds.map(wine => (
 					<div key={wine._id}>
