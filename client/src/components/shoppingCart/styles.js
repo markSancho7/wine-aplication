@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 const StyledTotalContainerCart = styled.div`
+	position: absolute;
+	top: 70px;
 	display: flex;
 	align-items: center;
 	margin-left: 10px;
@@ -9,11 +11,13 @@ const StyledTotalContainerCart = styled.div`
 const StyledContainerCart = styled.div`
 	display: ${({ $isVisible }) => ($isVisible ? 'none' : 'block')};
 	position: absolute;
+	top: 120px;
 	left: 10px;
 	background-color: white;
 	padding: 10px;
 	box-shadow: 0px 0px 5px 0px grey;
 	border-radius: 10px;
+	z-index: 100;
 `;
 const StyledImg = styled.img`
 	margin-top: 5px;

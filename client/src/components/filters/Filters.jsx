@@ -1,16 +1,16 @@
-import { StyledTotalContainerFilters } from './styles';
+import { StyledFilter, StyledTotalContainerFilters } from './styles';
 
 const Filters = ({ filterByGrape, filterByName }) => {
 	return (
 		<StyledTotalContainerFilters>
-			<div>
+			<StyledFilter>
 				<label>Filtrar por nombre </label>
 				<input onChange={event => filterByName(event.target.value)}></input>
-			</div>
-			<div>
+			</StyledFilter>
+			<StyledFilter>
 				<label>Filtrar por uva </label>
 				<input onChange={event => filterByGrape(event.target.value)}></input>
-			</div>
+			</StyledFilter>
 		</StyledTotalContainerFilters>
 	);
 };

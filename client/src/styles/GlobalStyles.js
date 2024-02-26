@@ -14,6 +14,9 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-family: "Oswald", sans-serif;
     background-color: #FFFAEA;
+    width: 1200px;
+    margin-right:auto ;
+    margin-left: auto;
     /* background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,213,170,1) 100%);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(166,49,99,0.7868389999657346) 100%);
     background-repeat: no-repeat;

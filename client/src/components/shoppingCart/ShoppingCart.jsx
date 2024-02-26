@@ -54,7 +54,7 @@ const totalPrice = cart => {
 		console.log(Number(price));
 		total += price * element.numberOfBottles;
 	});
-	return total;
+	return total.toFixed(2);
 };
 
 export default ShoppingCart;

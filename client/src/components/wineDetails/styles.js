@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledTotalContainer = styled.div`
-	width: 600px;
+	width: 650px;
 	padding: 20px;
 	margin-left: auto;
 	margin-right: auto;
@@ -20,11 +20,11 @@ const StyledContainer = styled.div`
 
 const StyledContainerDetails = styled.div`
 	width: 400px;
-	margin-left: 50px;
+	margin-left: 10px;
 `;
 
 const StyledContainerImg = styled.div`
-	width: 120px;
+	width: 180px;
 	display: flex;
 	align-items: center;
 `;
